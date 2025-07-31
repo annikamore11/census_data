@@ -2,3 +2,4 @@
 .Renviron
 .env
 
+.DS_Store
