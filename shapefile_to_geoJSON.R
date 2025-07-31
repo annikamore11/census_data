@@ -8,7 +8,7 @@ options(tigris_use_cache = TRUE)
 
 # Download 2024 congressional districts (CB = cartographic boundary, simplified)
 states <- states(cb = TRUE, year = 2023)
-con_districts <- congressional_districts(cb = TRUE, year = 2024)
+con_districts <- congressional_districts(cb = TRUE, year = 2023)
 st_house_districts <- state_legislative_districts(cb = TRUE, house = "lower", year = 2023)
 st_senate_districts <- state_legislative_districts(cb = TRUE, house = "upper", year = 2023)
 counties <- counties(cb = TRUE, year = 2023)

@@ -35,7 +35,7 @@ An R script to query, clean, and prepare census demographic data and retrieve ge
 ### Race & Ethnicity
 
 | Field           | Description                                                         |
-|-------------------------|-----------------------------------------------|
+|--------------------------|----------------------------------------------|
 | white_alone     | Population identifying as White alone                               |
 | black_alone     | Population identifying as Black or African American alone           |
 | am_indian_alone | Population identifying as American Indian or Alaska Native alone    |
@@ -99,7 +99,9 @@ An R script to query, clean, and prepare census demographic data and retrieve ge
 
 ## Update Schedule
 
-The 2024 American Community Survey 5-year estimates is set to release December 11, 2024.
+-   The 2024 American Community Survey 5-year estimates is set to release December 11, 2025.
+- TIGER/Line shapefile updates are more current, but only update to the current year of the ACS survey being used.
+    -   TIGER/Line shapefiles for 2024 have already been released, so update code when new survey data is released
 
 ### Changes in Scripts
 
