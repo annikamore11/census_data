@@ -3,11 +3,10 @@ library(dplyr)
 library(sf)
 library(tigris)
 library(tidyr)
-library(htmltools)
 options(tigris_use_cache = TRUE)
 
 # Set Census API key 
-census_api_key("04501a46e2d2db29ccf0181a051065b6707245a4", install = TRUE, overwrite = TRUE)
+census_api_key(Sys.getenv("CENSUS_API_KEY"), install = TRUE, overwrite = TRUE)
 
 # Variable Selection
 acs_vars <- load_variables(
@@ -16,13 +15,13 @@ acs_vars <- load_variables(
   cache = TRUE
 )
 
-# Search for variables containing the word "population"
+# Search for variables containing a specific word or search for descriptions based on variable code
 pop_vars <- acs_vars %>%
-  filter(grepl("B19013", name, ignore.case = TRUE))
+  filter(grepl("B15003", name, ignore.case = TRUE))
 
 
 
-# Choose variables for population data: total population, pop by sex, pop by race
+# Choose variables 
 variables_of_interest <- c(
   total_pop = "B01003_001",       # Total population
   female_pop = "B01001_026",      # Total population of females
@@ -64,13 +63,12 @@ us_pop_data <- get_acs(
 )
 
 
-# Use your own names directly
 us_clean <- us_pop_data %>%
   mutate(variable = recode(variable, !!!setNames(names(variables_of_interest), variables_of_interest))) %>%
   select(GEOID, NAME, variable, estimate)
 
 
-# Pivot to wide format: one row per county
+# Pivot to wide format
 us_final <- us_clean %>%
   pivot_wider(
     names_from = variable,
@@ -109,13 +107,12 @@ counties_pop_data <- get_acs(
 )
 
 
-# Use your own names directly
 counties_clean <- counties_pop_data %>%
   mutate(variable = recode(variable, !!!setNames(names(variables_of_interest), variables_of_interest))) %>%
   select(GEOID, NAME, variable, estimate)
 
 
-# Pivot to wide format: one row per county
+# Pivot to wide format
 counties_final <- counties_clean %>%
   pivot_wider(
     names_from = variable,
@@ -157,13 +154,12 @@ cd_pop_data <- get_acs(
 )
 
 
-# Use your own names directly
 cd_clean <- cd_pop_data %>%
   mutate(variable = recode(variable, !!!setNames(names(variables_of_interest), variables_of_interest))) %>%
   select(GEOID, variable, NAME, estimate)
 
 
-# Pivot to wide format: one row per county
+# Pivot to wide format
 cd_final <- cd_clean %>%
   pivot_wider(
     names_from = variable,
@@ -206,13 +202,12 @@ state_pop_data <- get_acs(
 )
 
 
-# Use your own names directly
 state_clean <- state_pop_data %>%
   mutate(variable = recode(variable, !!!setNames(names(variables_of_interest), variables_of_interest))) %>%
   select(GEOID, NAME, variable, estimate)
 
 
-# Pivot to wide format: one row per county
+# Pivot to wide format
 state_final <- state_clean %>%
   pivot_wider(
     names_from = variable,
