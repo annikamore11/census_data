@@ -238,10 +238,10 @@ state_final <- state_final %>%
 
 ######################## Write Files To CSV ##############################
 
-write.csv(us_final, "data/US_level_census_data.csv", row.names = FALSE)
-write.csv(counties_final, "data/county_level_census_data.csv", row.names = FALSE)
-write.csv(cd_final, "data/congressional_district_level_census_data.csv", row.names = FALSE)
-write.csv(state_final, "data/state_level_census_data.csv", row.names = FALSE)
+write.csv(us_final, "data/attribute/US_level_census_data.csv", row.names = FALSE)
+write.csv(counties_final, "data/attribute/county_level_census_data.csv", row.names = FALSE)
+write.csv(cd_final, "data/attribute/congressional_district_level_census_data.csv", row.names = FALSE)
+write.csv(state_final, "data/attribute/state_level_census_data.csv", row.names = FALSE)
 
 
 

@@ -30,9 +30,9 @@ counties_geom <- counties %>% select(GEOID, geometry)
 
 
 # Export to GeoJSON
-geojson_write(states_geom, file = "data/states_geom_2023.geojson")
-geojson_write(con_districts_geom, file = "data/con_district_geom_2023.geojson")
-geojson_write(st_house_geom, file = "data/house_district_geom_2023.geojson")
-geojson_write(st_senate_geom, file = "data/senate_district_geom_2023.geojson")
-geojson_write(counties_geom, file = "data/counties_geom_2023.geojson")
-geojson_write(usa_sf, file = "data/us_geom_2023.geojson")
+geojson_write(states_geom, file = "data/geometry/states_geom_2023.geojson")
+geojson_write(con_districts_geom, file = "data/geometry/con_district_geom_2023.geojson")
+geojson_write(st_house_geom, file = "data/geometry/house_district_geom_2023.geojson")
+geojson_write(st_senate_geom, file = "data/geometry/senate_district_geom_2023.geojson")
+geojson_write(counties_geom, file = "data/geometry/counties_geom_2023.geojson")
+geojson_write(usa_sf, file = "data/geometry/us_geom_2023.geojson")
