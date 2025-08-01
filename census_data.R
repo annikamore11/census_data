@@ -17,7 +17,7 @@ acs_vars <- load_variables(
 
 # Search for variables containing a specific word or search for descriptions based on variable code
 pop_vars <- acs_vars %>%
-  filter(grepl("B15003", name, ignore.case = TRUE))
+  filter(grepl("B27010", name, ignore.case = TRUE))
 
 
 
@@ -50,7 +50,13 @@ variables_of_interest <- c(
   prof_school = "B15003_024",       # Professional School degree
   doctorate = "B15003_025",          # Doctorate Degree
   
-  med_household_income = "B19013_001"   # Median Household Income
+  med_household_income = "B19013_001",   # Median Household Income
+  
+  total_insur_pop = "B27010_001",
+  uninsured_under_19 = "B27010_017",
+  uninsured_19_30 = "B27010_033",
+  uninsured_35_64 = "B27010_050",
+  uninsured_65_over = "B27010_066"
 )
 
 ############################ USA Table ###################################
@@ -92,8 +98,11 @@ us_final <- us_final %>%
     pct_hs_or_higher = (highshool_grad + ged_alt_cred + some_college_less + some_college_more +
       associates + bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
     pct_ba_or_higher = (bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
-    pct_doctorate = doctorate / pop_25_over * 100
-  )
+    pct_doctorate = doctorate / pop_25_over * 100,
+    
+    pct_uninsured = ((uninsured_under_19 + uninsured_19_30 + uninsured_35_64 + uninsured_65_over)/total_insur_pop)
+  ) %>%
+  select(GEOID, NAME, total_pop, pct_female: pct_uninsured, med_household_income)
 
 
 
@@ -136,8 +145,11 @@ counties_final <- counties_final %>%
     pct_hs_or_higher = (highshool_grad + ged_alt_cred + some_college_less + some_college_more +
                           associates + bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
     pct_ba_or_higher = (bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
-    pct_doctorate = doctorate / pop_25_over * 100
-  )
+    pct_doctorate = doctorate / pop_25_over * 100,
+    
+    pct_uninsured = ((uninsured_under_19 + uninsured_19_30 + uninsured_35_64 + uninsured_65_over)/total_insur_pop)
+  ) %>%
+  select(GEOID, NAME, total_pop, pct_female: pct_uninsured, med_household_income)
 
 
 counties_final <- counties_final %>%
@@ -183,8 +195,12 @@ cd_final <- cd_final %>%
     pct_hs_or_higher = (highshool_grad + ged_alt_cred + some_college_less + some_college_more +
                           associates + bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
     pct_ba_or_higher = (bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
-    pct_doctorate = doctorate / pop_25_over * 100
-  )
+    pct_doctorate = doctorate / pop_25_over * 100,
+    
+    pct_uninsured = ((uninsured_under_19 + uninsured_19_30 + uninsured_35_64 + uninsured_65_over)/total_insur_pop)
+  ) %>%
+  select(GEOID, NAME, total_pop, pct_female: pct_uninsured, med_household_income)
+  
 
 
 cd_final <- cd_final %>%
@@ -231,8 +247,12 @@ state_final <- state_final %>%
     pct_hs_or_higher = (highshool_grad + ged_alt_cred + some_college_less + some_college_more +
                           associates + bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
     pct_ba_or_higher = (associates + bachelors + masters + prof_school + doctorate) / pop_25_over * 100,
-    pct_doctorate = doctorate / pop_25_over * 100
-  )
+    pct_doctorate = doctorate / pop_25_over * 100,
+    
+    pct_uninsured = ((uninsured_under_19 + uninsured_19_30 + uninsured_35_64 + uninsured_65_over)/total_insur_pop)
+  ) %>%
+  select(GEOID, NAME, total_pop, pct_female: pct_uninsured, med_household_income)
+  
 
 
 ######################## Write Files To CSV ##############################
