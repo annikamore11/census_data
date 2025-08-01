@@ -37,12 +37,6 @@ geojson_write(st_senate_geom, file = "data/geometry/senate_district_geom_2024.ge
 geojson_write(counties_geom, file = "data/geometry/counties_geom_2024.geojson")
 geojson_write(usa_sf, file = "data/geometry/us_geom_2024.geojson")
 
-geojson_write(states_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/states_geom_2024.geojson")
-geojson_write(con_districts, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/con_district_geom_2024.geojson")
-geojson_write(st_house_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/house_district_geom_2024.geojson")
-geojson_write(st_senate_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/senate_district_geom_2024.geojson")
-geojson_write(counties_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/counties_geom_2024.geojson")
-geojson_write(usa_sf, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/us_geom_2024.geojson")
 
 
 

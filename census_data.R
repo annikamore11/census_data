@@ -243,8 +243,3 @@ write.csv(cd_final, "data/attribute/congressional_district_level_census_data.csv
 write.csv(state_final, "data/attribute/state_level_census_data.csv", row.names = FALSE)
 
 
-write.csv(us_final, "/Users/annikamore/Desktop/Data Directories/open_data/example_data/US_level_census_data.csv", row.names = FALSE)
-write.csv(counties_final, "/Users/annikamore/Desktop/Data Directories/open_data/example_data/county_level_census_data.csv", row.names = FALSE)
-write.csv(cd_final, "/Users/annikamore/Desktop/Data Directories/open_data/example_data/congressional_district_level_census_data.csv", row.names = FALSE)
-write.csv(state_final, "/Users/annikamore/Desktop/Data Directories/open_data/example_data/state_level_census_data.csv", row.names = FALSE)
-
