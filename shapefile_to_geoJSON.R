@@ -24,8 +24,8 @@ usa_sf <- get_us_boundary(states)
 
 states_geom <- states %>% select(GEOID, geometry)
 con_districts_geom <- con_districts %>% select(GEOID, geometry)
-st_house_geom <- st_house_districts %>% select(GEOID, geometry)
-st_senate_geom <- st_senate_districts %>% select(GEOID, geometry)
+st_house_geom <- st_house_districts %>% select(GEOID, NAMELSAD, geometry)
+st_senate_geom <- st_senate_districts %>% select(GEOID, NAMELSAD, geometry)
 counties_geom <- counties %>% select(GEOID, geometry)
 
 
@@ -36,3 +36,21 @@ geojson_write(st_house_geom, file = "data/geometry/house_district_geom_2024.geoj
 geojson_write(st_senate_geom, file = "data/geometry/senate_district_geom_2024.geojson")
 geojson_write(counties_geom, file = "data/geometry/counties_geom_2024.geojson")
 geojson_write(usa_sf, file = "data/geometry/us_geom_2024.geojson")
+
+geojson_write(states_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/states_geom_2024.geojson")
+geojson_write(con_districts, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/con_district_geom_2024.geojson")
+geojson_write(st_house_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/house_district_geom_2024.geojson")
+geojson_write(st_senate_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/senate_district_geom_2024.geojson")
+geojson_write(counties_geom, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/counties_geom_2024.geojson")
+geojson_write(usa_sf, file = "/Users/annikamore/Desktop/Data Directories/open_data/example_data/us_geom_2024.geojson")
+
+
+
+
+
+
+
+
+
+
+
